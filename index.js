@@ -10,7 +10,7 @@ var initialize = function(opts) {
       if (this.is('application/json')) {
         this.request.body = yield coBody.json(this, opts);
       }
-    } catch() {}
+    } catch(e) {}
 
     yield next;
   }

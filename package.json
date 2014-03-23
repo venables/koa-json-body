@@ -1,6 +1,6 @@
 {
   "name": "koa-json-body",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "koa middleware to parse json request bodies",
   "main": "index.js",
   "scripts": {
