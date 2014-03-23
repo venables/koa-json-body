@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/venables/koa-json-body/issues"
   },
-  "homepage": "https://github.com/venables/koa-json-body"
+  "homepage": "https://github.com/venables/koa-json-body",
+  "dependencies": {
+    "co-body": "^0.0.1"
+  }
 }
