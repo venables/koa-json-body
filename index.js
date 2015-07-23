@@ -1,22 +1,16 @@
 'use strict';
 
-var coBody = require('co-body');
+var parse = require('co-body');
 
 var initialize = function(opts) {
-  opts = opts || {};
+  opts = opts || { strict: true };
 
   return function *(next) {
-    this.request.body = {};
-
-    try {
-      if (this.is('application/json')) {
-        this.request.body = yield coBody.json(this, opts);
-      }
-    } catch(e) {
-    }
+    this.request.body = yield parse.json(this, opts);
+    this.body = this.request.body;
 
     yield next;
-  }
-}
+  };
+};
 
 module.exports = initialize;

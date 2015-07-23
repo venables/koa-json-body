@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/venables/koa-json-body",
   "dependencies": {
-    "co-body": "^0.0.1"
+    "co-body": "^2.0.0"
   }
 }
