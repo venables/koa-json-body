@@ -46,3 +46,7 @@ app.post('/users', jsonBody, function *() {
 });
 ```
 
+Versioning
+----------
+
+Major versions will map to co-body major versions (e.g. koa-json-helmet 4.x.x uses co-body 4.y.y)
