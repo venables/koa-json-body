@@ -2,10 +2,11 @@ koa-json-body
 =============
 
 [![Dependency Status](https://david-dm.org/venables/koa-json-body.png)](https://david-dm.org/venables/koa-json-body)
+[![Downloads](https://img.shields.io/npm/dm/koa-json-body.svg)](https://www.npmjs.com/package/koa-json-body)
 
-Very simple [koa](https://github.com/koajs/koa) middleware wrapper around [co-body](https://github.com/visionmedia/co-body) for parsing JSON request bodies. Largely inspired by [koa-body](https://github.com/dlau/koa-body).
+Simple [koa](https://github.com/koajs/koa) middleware wrapper around [co-body](https://github.com/visionmedia/co-body) for parsing JSON request bodies.
 
-This will not parse anythig but valid JSON request bodies.  If there is a JSON error, the middleware will set `ctx.request.body` to `{}` and continue.
+This will not parse anythig but valid JSON request bodies.  If there is a JSON parsing error, the middleware will set `ctx.request.body` to `{}` and continue.
 
 Installation
 ------------
