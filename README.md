@@ -1,8 +1,9 @@
 koa-json-body
 =============
 
-[![Dependency Status](https://david-dm.org/venables/koa-json-body.png)](https://david-dm.org/venables/koa-json-body)
-[![Downloads](https://img.shields.io/npm/dm/koa-json-body.svg)](https://www.npmjs.com/package/koa-json-body)
+[![Version](https://img.shields.io/npm/v/koa-json-body.svg?style=flat-square)](https://www.npmjs.com/package/koa-json-body)
+[![Dependency Status](https://img.shields.io/david/venables/koa-json-body.svg?style=flat-square)](https://david-dm.org/venables/koa-json-body)
+[![Downloads](https://img.shields.io/npm/dm/koa-json-body.svg?style=flat-square)](https://www.npmjs.com/package/koa-json-body)
 
 Simple [koa](https://github.com/koajs/koa) middleware wrapper around [co-body](https://github.com/visionmedia/co-body) for parsing JSON request bodies.
 
