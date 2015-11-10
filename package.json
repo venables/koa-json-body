@@ -1,10 +1,10 @@
 {
   "name": "koa-json-body",
-  "version": "4.0.0",
+  "version": "5.0.0-alpha.1",
   "description": "koa middleware to parse json request bodies",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,18 @@
     "url": "https://github.com/venables/koa-json-body/issues"
   },
   "homepage": "https://github.com/venables/koa-json-body",
+  "engines": {
+    "node": ">= 4.0.0"
+  },
   "dependencies": {
     "co-body": "^4.0.0"
+  },
+  "devDependencies": {
+    "koa": ">= 2.0.0-alpha.3",
+    "mocha": "^2.3.3",
+    "supertest": "^1.1.0"
+  },
+  "peerDependencies": {
+    "koa": ">= 2.0.0-alpha.3"
   }
 }
