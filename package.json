@@ -1,6 +1,6 @@
 {
   "name": "koa-json-body",
-  "version": "5.0.0-alpha.1",
+  "version": "5.0.0",
   "description": "koa middleware to parse json request bodies",
   "main": "lib/index.js",
   "scripts": {
@@ -30,11 +30,11 @@
     "co-body": "^4.0.0"
   },
   "devDependencies": {
-    "koa": ">= 2.0.0-alpha.3",
+    "koa": ">= 2.0.0",
     "mocha": "^2.3.3",
     "supertest": "^1.1.0"
   },
   "peerDependencies": {
-    "koa": ">= 2.0.0-alpha.3"
+    "koa": ">= 2.0.0"
   }
 }
