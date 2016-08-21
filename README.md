@@ -9,11 +9,6 @@ Simple [koa](https://github.com/koajs/koa) middleware wrapper around [co-body](h
 
 This will not parse anythig but valid JSON request bodies.  If there is a JSON parsing error, the middleware will set `ctx.request.body` to `{}` and continue.
 
-NOTE
-----
-
-This branch is for koa v2, which uses Promises instead of Generator functions.  For koa 0.x and 1.x support, see the [koa-1](https://github.com/venables/koa-json-body/tree/koa-1) branch.
-
 Installation
 ------------
 
@@ -38,8 +33,8 @@ var jsonBody = require('koa-json-body');
 
 app.use(jsonBody({ limit: '10kb' }));
 
-app.use(function *() {
-  console.log(this.request.body);
+app.use(function(ctx, next) {
+  console.log(ctx.request.body);
 });
 ```
 
@@ -48,10 +43,16 @@ On a per-route basis (using [koa-router](https://github.com/alexmingoia/koa-rout
 ```javascript
 var jsonBody = require('koa-json-body')({ limit: '10kb' });
 
-app.post('/users', jsonBody, function *() {
-  console.log(this.request.body);
+app.post('/users', jsonBody, function(ctx, next) {
+  console.log(ctx.request.body);
 });
 ```
+
+Made for koa 2
+--------------
+
+For koa 0.x and 1.x support, see the [koa-1](https://github.com/venables/koa-json-body/tree/koa-1) branch.
+
 
 Versioning
 ----------
