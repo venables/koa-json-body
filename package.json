@@ -30,11 +30,11 @@
     "co-body": "^4.0.0"
   },
   "devDependencies": {
-    "koa": ">= 2.0.0",
+    "koa": "next",
     "mocha": "^2.3.3",
     "supertest": "^1.1.0"
   },
   "peerDependencies": {
-    "koa": ">= 2.0.0"
+    "koa": "next"
   }
 }
