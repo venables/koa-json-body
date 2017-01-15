@@ -31,23 +31,23 @@ Usage
 On a every route:
 
 ```javascript
-var jsonBody = require('koa-json-body');
+var jsonBody = require('koa-json-body')
 
-app.use(jsonBody({ limit: '10kb' }));
+app.use(jsonBody({ limit: '10kb' }))
 
-app.use(function(ctx, next) {
-  console.log(ctx.request.body);
-});
+app.use(function (ctx, next) {
+  console.log(ctx.request.body)
+})
 ```
 
 On a per-route basis (using [koa-router](https://github.com/alexmingoia/koa-router)):
 
 ```javascript
-var jsonBody = require('koa-json-body')({ limit: '10kb' });
+var jsonBody = require('koa-json-body')({ limit: '10kb' })
 
-app.post('/users', jsonBody, function(ctx, next) {
-  console.log(ctx.request.body);
-});
+app.post('/users', jsonBody, function (ctx, next) {
+  console.log(ctx.request.body)
+})
 ```
 
 Made for koa 2
