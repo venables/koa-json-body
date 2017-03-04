@@ -19,6 +19,12 @@ Installation
 ------------
 
 ```bash
+yarn add koa-json-body
+```
+
+or via npm:
+
+```bash
 npm install koa-json-body --save
 ```
 
@@ -55,13 +61,18 @@ app.post('/users', jsonBody, function (ctx, next) {
 })
 ```
 
-Made for koa 2
---------------
+
+Testing
+-------
+
+To test, simply run
+
+```bash
+yarn test
+```
+
+
+Made for koa 2 and beyond
+-------------------------
 
 For koa 0.x and 1.x support, see the [koa-1](https://github.com/venables/koa-json-body/tree/koa-1) branch.
-
-
-Versioning
-----------
-
-Major versions will map to co-body major versions (e.g. koa-json-helmet 4.x.x uses co-body 4.y.y)
