@@ -9,7 +9,11 @@ koa-json-body
 
 Simple [koa](https://github.com/koajs/koa) middleware wrapper around [co-body](https://github.com/visionmedia/co-body) for parsing JSON request bodies.
 
-This will not parse anythig but valid JSON request bodies.  If there is a JSON parsing error, the middleware will set `ctx.request.body` to `{}` and continue.
+This will not parse anythig but valid JSON request bodies on `POST`, `PUT`, and `PATCH` requests (any non `GET` or `DELETE` request).
+
+If there is a JSON parsing error, or if the request is not of valid type, `ctx.request.body` is not set, and will be `undefined`.
+
+If the JSON request payload is too large, a `413 Payload Too Large` error will be thrown.
 
 Installation
 ------------
@@ -21,9 +25,10 @@ npm install koa-json-body --save
 Options
 -------
 
-Available via [co-body](https://github.com/visionmedia/co-body):
-
 * `limit` - number or string representing the request size limit (default: `1mb`)
+* `strict` - when set to `true`, koa-json-body will only accept arrays and objects. (default: `true`)
+
+Additional options available via [co-body](https://github.com/cojs/co-body).
 
 Usage
 -----

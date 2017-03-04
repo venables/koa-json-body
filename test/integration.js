@@ -9,41 +9,110 @@ const request = require('supertest')
 describe('integration', function () {
   let app
 
-  before(function () {
-    app = new Koa()
-    app.use(body())
-    app.use((ctx) => {
-      ctx.body = ctx.request.body
+  describe('default options', function () {
+    before(function () {
+      app = new Koa()
+      app.use(body())
+      app.use((ctx) => {
+        ctx.body = ctx.request.body
+      })
+    })
+
+    it('does nothing on a GET request', function () {
+      return request(app.listen())
+        .get('/')
+        .expect(204)
+    })
+
+    it('does nothing on a DELETE request', function () {
+      return request(app.listen())
+        .delete('/')
+        .expect(204)
+    })
+
+    it('parses JSON Objects and assigns it to ctx.request.body', function () {
+      return request(app.listen())
+        .post('/')
+        .send({
+          something: 'awesome'
+        })
+        .expect(200)
+        .expect({ something: 'awesome' })
+    })
+
+    it('parses JSON Arrays and assigns it to ctx.request.body', function () {
+      return request(app.listen())
+        .post('/')
+        .send(['a', 'b', 'c'])
+        .expect(200)
+        .expect(['a', 'b', 'c'])
+    })
+
+    it('ignores JSON', function () {
+      return request(app.listen())
+        .post('/')
+        .set('Content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .send('{ "not": "json"')
+        .expect(204)
+    })
+
+    it('ignores non-object or array JSON by default', function () {
+      return request(app.listen())
+        .post('/')
+        .set('Content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .send('not an object')
+        .expect(204)
     })
   })
 
-  it('does nothing on a GET request', function () {
-    return request(app.listen())
-      .get('/')
-      .expect(204)
-  })
-
-  it('does nothing on a DELETE request', function () {
-    return request(app.listen())
-      .delete('/')
-      .expect(204)
-  })
-
-  it('parses JSON and assigns it to ctx.request.body', function () {
-    return request(app.listen())
-      .post('/')
-      .send({
-        something: 'awesome'
+  describe('the `limit` option', function () {
+    before(function () {
+      app = new Koa()
+      app.use(body({ limit: '10' }))
+      app.use((ctx) => {
+        ctx.body = ctx.request.body
       })
-      .expect(200, { something: 'awesome' })
+    })
+
+    it('handles anything less than the limit', function () {
+      return request(app.listen())
+        .post('/')
+        .send({
+          a: 'ok'
+        })
+        .expect(200)
+        .expect({ a: 'ok' })
+    })
+
+    it('returns a `413 "Payload Too Large" error if the limit is exceeded', function () {
+      return request(app.listen())
+        .post('/')
+        .send({
+          too: 'large'
+        })
+        .expect(413)
+    })
   })
 
-  it('silently handles invalid JSON', function () {
-    return request(app.listen())
-      .post('/')
-      .set('Content-Type', 'application/json')
-      .set('Accept', 'application/json')
-      .send('{ "not": "json"')
-      .expect(204)
+  describe('the `strict` option', function () {
+    before(function () {
+      app = new Koa()
+      app.use(body({ strict: false }))
+      app.use((ctx) => {
+        ctx.body = ctx.request.body
+      })
+    })
+
+    it('allows for non-object bodies', function () {
+      return request(app.listen())
+        .post('/')
+        .set('Content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .send(1234567)
+        .expect(200)
+        .expect('1234567')
+    })
   })
 })
