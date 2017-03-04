@@ -12,9 +12,11 @@ koa-json-body
 
 A single-purpose [koa](https://github.com/koajs/koa) middleware to only parse JSON request bodies and nothing else.
 
-By default, this libarary parses all *valid* JSON bodies on `POST`, `PUT`, and `PATCH` requests, and assigns the value to `ctx.request.body`.
+By default, this libarary parses all **valid** JSON bodies on `POST`, `PUT`, and `PATCH` requests, and assigns the value to `ctx.request.body`.
 
 If there is a JSON parsing error, or if the request is not of valid type, `ctx.request.body` is not set, and will be `undefined`. If the JSON request payload is too large (by [default](#options), the limit is `1mb`), a `413 Payload Too Large` error will be thrown.
+
+To ensure `ctx.request.body` contains an empty object `{}` (rather than `undefined`) on missing/invalid payloads, you can set the [`fallback` option](#options) to `true`.
 
 Installation
 ------------
@@ -32,6 +34,7 @@ npm install koa-json-body --save
 Options
 -------
 
+* `fallback` - when set to `true`, `ctx.request.body` will always contain `{}` upon missing or invalid payloads.
 * `limit` - number or string representing the request size limit (default: `1mb`)
 * `strict` - when set to `true`, koa-json-body will only accept arrays and objects. (default: `true`)
 
@@ -47,7 +50,7 @@ const body = require('koa-json-body')
 
 app.use(body({ limit: '10kb' }))
 
-app.use(function (ctx, next) {
+app.use((ctx, next) => {
   console.log(ctx.request.body)
 })
 ```
@@ -57,7 +60,7 @@ On a per-route basis (this example uses [koa-router](https://github.com/alexming
 ```javascript
 const body = require('koa-json-body')({ limit: '10kb' })
 
-app.post('/users', body, function (ctx, next) {
+app.post('/users', body, (ctx, next) => {
   console.log(ctx.request.body)
 })
 ```
