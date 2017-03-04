@@ -4,7 +4,8 @@
   "description": "Single-purpose koa middleware to only parse JSON request bodies and nothing else.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "./node_modules/.bin/standard && NODE_ENV=test ./node_modules/.bin/nyc ./node_modules/.bin/mocha 'test/**/*.spec.js'"
+    "test": "./node_modules/.bin/standard && NODE_ENV=test ./node_modules/.bin/nyc ./node_modules/.bin/mocha 'test/**/*.spec.js'",
+    "coverage": "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "co-body": "^5.0.0"
   },
   "devDependencies": {
+    "coveralls": "^2.11.16",
     "koa": "next",
     "mocha": "^3.2.0",
     "nyc": "^10.1.2",

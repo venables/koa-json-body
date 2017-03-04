@@ -1,11 +1,12 @@
 koa-json-body
 =============
 
-[![Version](https://img.shields.io/npm/v/koa-json-body.svg?style=flat-square)](https://www.npmjs.com/package/koa-json-body)
-[![Dependency Status](https://img.shields.io/david/venables/koa-json-body/master.svg?style=flat-square)](https://david-dm.org/venables/koa-json-body)
-[![Build Status](https://img.shields.io/travis/venables/koa-json-body/master.svg?style=flat-square)](https://travis-ci.org/venables/koa-json-body)
+[![Version](https://img.shields.io/npm/v/koa-json-body.svg)](https://www.npmjs.com/package/koa-json-body)
+[![Build Status](https://img.shields.io/travis/venables/koa-json-body/master.svg)](https://travis-ci.org/venables/koa-json-body)
+[![Coverage Status](https://img.shields.io/coveralls/venables/koa-json-body.svg)](https://coveralls.io/github/venables/koa-json-body)
+[![Dependency Status](https://img.shields.io/david/venables/koa-json-body/master.svg)](https://david-dm.org/venables/koa-json-body)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
-[![Downloads](https://img.shields.io/npm/dm/koa-json-body.svg?style=flat-square)](https://www.npmjs.com/package/koa-json-body)
+[![Downloads](https://img.shields.io/npm/dm/koa-json-body.svg)](https://www.npmjs.com/package/koa-json-body)
 
 ----------
 
