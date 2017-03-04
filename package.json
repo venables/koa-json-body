@@ -1,7 +1,7 @@
 {
   "name": "koa-json-body",
   "version": "5.2.0",
-  "description": "koa middleware to parse json request bodies",
+  "description": "Single-purpose koa middleware to only parse JSON request bodies and nothing else.",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha test"
