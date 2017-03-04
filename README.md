@@ -34,7 +34,7 @@ npm install koa-json-body --save
 Options
 -------
 
-* `fallback` - when set to `true`, `ctx.request.body` will always contain `{}` upon missing or invalid payloads.
+* `fallback` - when set to `true`, `ctx.request.body` will always contain `{}` upon missing or invalid payloads. (default: `false`)
 * `limit` - number or string representing the request size limit (default: `1mb`)
 * `strict` - when set to `true`, koa-json-body will only accept arrays and objects. (default: `true`)
 
@@ -48,7 +48,7 @@ On a every route:
 ```javascript
 const body = require('koa-json-body')
 
-app.use(body({ limit: '10kb' }))
+app.use(body({ limit: '10kb', fallback: true }))
 
 app.use((ctx, next) => {
   console.log(ctx.request.body)
