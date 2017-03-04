@@ -1,7 +1,7 @@
 {
   "name": "koa-json-body",
-  "version": "5.2.0",
-  "description": "Single-purpose koa middleware to only parse JSON request bodies and nothing else.",
+  "version": "5.3.0",
+  "description": "Single-purpose koa middleware to parse valid JSON request bodies and nothing else.",
   "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/.bin/standard && NODE_ENV=test ./node_modules/.bin/nyc --reporter=lcov --reporter=text-summary ./node_modules/.bin/mocha 'test/**/*.spec.js'",
