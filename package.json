@@ -27,11 +27,11 @@
     "node": ">= 4.0.0"
   },
   "dependencies": {
-    "co-body": "^4.0.0"
+    "co-body": "^5.0.0"
   },
   "devDependencies": {
     "koa": "next",
     "mocha": "^3.2.0",
-    "supertest": "^2.0.1"
+    "supertest": "^3.0.0"
   }
 }
