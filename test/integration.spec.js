@@ -24,12 +24,6 @@ describe('integration', function () {
         .expect(204)
     })
 
-    it('does nothing on a DELETE request', function () {
-      return request(app.listen())
-        .delete('/')
-        .expect(204)
-    })
-
     it('parses JSON Objects and assigns it to ctx.request.body', function () {
       return request(app.listen())
         .post('/')
@@ -83,11 +77,16 @@ describe('integration', function () {
         .expect({})
     })
 
-    it('sets ctx.request.body to {} on a DELETE request', function () {
+    it('allows body on a DELETE request', function () {
       return request(app.listen())
         .delete('/')
+        .send({
+          foo: 'bar'
+        })
         .expect(200)
-        .expect({})
+        .expect({
+          foo: 'bar'
+        })
     })
 
     it('parses JSON Objects and assigns it to ctx.request.body', function () {
